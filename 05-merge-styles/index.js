@@ -12,7 +12,7 @@ async function mergeStyles(source ,destination)
     if (err) throw err;
 
     files.forEach(a => {
-        let tmpPath = path.resolve(styles, a.name);
+        let tmpPath = path.resolve(source, a.name);
         let parse = path.parse(tmpPath);
         if(a.isFile(), parse.ext == '.css')
              fs.readFile(tmpPath, 'utf-8',(err, str) => {
