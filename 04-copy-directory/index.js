@@ -2,9 +2,9 @@ const fs = require('fs')
 const path = require('path/posix')
 
 function copyFiles(folder) {
-    const dir = path.resolve(__dirname, folder);
+    const dir = path.join(__dirname, folder);
     const newDir = dir + "-copy";
-
+   
     fs.mkdir(newDir, { recursive: true }, (err) => {
         if (err) throw err;
     })

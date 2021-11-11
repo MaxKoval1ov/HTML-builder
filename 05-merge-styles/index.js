@@ -1,8 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 
-const styles = path.resolve(__dirname, "styles");
-const bundle = path.resolve(__dirname, "project-dist", "bundle.css")
+const styles = path.join(__dirname, "styles");
+const bundle = path.join(__dirname, "project-dist", "bundle.css")
 
 let arr = [];
 

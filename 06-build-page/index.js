@@ -8,7 +8,7 @@ function mergeFiles(source ,destination, ext)
       fs.readdir(source, {withFileTypes: true}, async (err, files) => {
     if (err) throw err;
     files.forEach(a => {
-        let tmpPath = path.resolve(source, a.name);
+        let tmpPath = path.join(source, a.name);
         let parse = path.parse(tmpPath);
         if(a.isFile(), parse.ext == ext)
              fs.readFile(tmpPath, 'utf-8',(err, str) => {
@@ -48,7 +48,7 @@ function copyFiles(source, dest){
 //     let obj = {};
 //      fs.readdir(components,{withFileTypes: true}, (err, files) => {
 //         files.forEach( a => {
-//             let filePath = path.resolve(components,a.name);
+//             let filePath = path.join(components,a.name);
 //             let parsed = path.parse(filePath);
 //              fs.readFile(filePath, 'utf-8',(err, str) => {
 //                 if(err) throw err;
@@ -64,7 +64,7 @@ async function getComponents(components){
     let obj = {};
     const files = await fs.promises.readdir(components);
     for(let file of files){
-        let filePath = path.resolve(components, file);
+        let filePath = path.join(components, file);
         let parsed = path.parse(filePath);
 
         const data = await fs.promises.readFile(filePath, "utf-8");
@@ -89,16 +89,16 @@ function makeHtml(source, destination, template,components) {
 }
 
 //Existing files
-const template = path.resolve(__dirname, 'template.html');
-const components = path.resolve(__dirname, 'components');
-const styles = path.resolve(__dirname, "styles");
-const assets = path.resolve(__dirname, "assets");
+const template = path.join(__dirname, 'template.html');
+const components = path.join(__dirname, 'components');
+const styles = path.join(__dirname, "styles");
+const assets = path.join(__dirname, "assets");
 
 //new files
-const projectDist = path.resolve(__dirname, "project-dist");
-const newHtml = path.resolve(projectDist, "index.html");
-const newStyles = path.resolve(projectDist, 'style.css');
-const newAssets = path.resolve(projectDist, 'assets');
+const projectDist = path.join(__dirname, "project-dist");
+const newHtml = path.join(projectDist, "index.html");
+const newStyles = path.join(projectDist, 'style.css');
+const newAssets = path.join(projectDist, 'assets');
 
 
 fs.mkdir(projectDist, { recursive: true }, (err) => {
