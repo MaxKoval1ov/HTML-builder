@@ -1,6 +1,5 @@
 const fs = require('fs')
 const path = require('path');
-const { PerformanceNodeTiming } = require('perf_hooks');
 
 function mergeFiles(source ,destination, ext)
  {

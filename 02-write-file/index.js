@@ -1,7 +1,7 @@
 const fs = require('fs');
 const process = require('process')
 
-let writeableStream = fs.createWriteStream("./text.txt",{
+let writeableStream = fs.createWriteStream("./02-write-file/text.txt",{
     flags: 'a+' // 'a' means appending (old data will be preserved)
   });
 
